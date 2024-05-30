@@ -26,6 +26,11 @@ public class Sucursal implements Serializable {
     @Column(name = "casa_matriz")
     private Boolean casaMatriz;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_domicilio")
+    private Domicilio domicilio;
+
+
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_empresa")
     private Empresa empresa;
